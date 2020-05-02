@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Route, Link, Switch, NavLink } from "react-router-dom";
+import homeImg from "./assests/main-pizza.jpg";
+import Delivery from "./components/Delivery";
+import Pizza from "./components/Pizza";
+import Order from "./components/Order";
 import shopsInfo from "./shops";
 import "./App.css";
 import {
@@ -77,8 +81,18 @@ const App = () => {
           </Collapse>
         </Navbar>
       </div>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
+      <Switch>
+        <Route path="/pizza/order">
+          <Order />
+        </Route>
+        <Route path="/pizza">
+          <Pizza />
+        </Route>
+
+        <Route path="/">
+          <Delivery setShopInfo={setShopInfo} shopInfo={shopInfo} />
+        </Route>
+      </Switch>
     </div>
   );
 };
