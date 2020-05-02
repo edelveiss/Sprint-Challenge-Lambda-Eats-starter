@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Link, Switch, NavLink } from "react-router-dom";
-import homeImg from "./assests/main-pizza.jpg";
+//import homeImg from "./assests/main-pizza.jpg";
 import Delivery from "./components/Delivery";
 import Pizza from "./components/Pizza";
 import Order from "./components/Order";
@@ -21,6 +21,33 @@ const App = () => {
   const toggleNavbar = () => setCollapsed(!collapsed);
   const [shopInfo, setShopInfo] = useState(shopsInfo);
   const [users, setUsers] = useState([]);
+  const [sum, setSum] = useState(0);
+  const [orderList, setOrderList] = useState([]);
+  const [post, setPost] = useState([]);
+
+  const [currentUser, setCurrentUser] = useState({
+    id: users.length,
+    firstName: "",
+    lastName: "",
+    email: "",
+    location: "",
+    orderAmount: 0,
+  });
+  const addNewUser = (user) => {
+    const newUser = {
+      id: users.length,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      location: user.location,
+      orderAmount: 0,
+    };
+    console.log("addnewuser curuser", newUser);
+    setUsers([...users, newUser]);
+  };
+
+  console.log("users", users);
+  console.log("current", currentUser);
   return (
     <div className="App">
       <div>
@@ -86,7 +113,19 @@ const App = () => {
           <Order />
         </Route>
         <Route path="/pizza">
-          <Pizza />
+          <Pizza
+            users={users}
+            setUsers={setUsers}
+            addNewUser={addNewUser}
+            setSum={setSum}
+            sum={sum}
+            orderList={orderList}
+            setOrderList={setOrderList}
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+            post={post}
+            setPost={setPost}
+          />
         </Route>
 
         <Route path="/">
