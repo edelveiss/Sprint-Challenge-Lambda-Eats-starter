@@ -181,6 +181,81 @@ function Pizza(props) {
             </FormGroup>
 
             {/***********Add Toppings*****************/}
+            <FormGroup className="formgroup">
+              <div className="choice">
+                <h4>Add Toppings</h4>
+                <h6>Choose any toppings, each costs additional $.50</h6>
+              </div>
+              <div className="toppings">
+                <div className="toppings1">
+                  <Toppings
+                    checkId="pepperoni"
+                    name="Pepperoni"
+                    checkLabel="pepperoni"
+                    labelText="Pepperoni"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+
+                  <Toppings
+                    checkId="sausage"
+                    name="Sausage"
+                    checkLabel="sausage"
+                    labelText="Sausage"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+
+                  <Toppings
+                    checkId="canadian"
+                    name="Canadian Bacon"
+                    checkLabel="canadian"
+                    labelText="Canadian Bacon"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+
+                  <Toppings
+                    checkId="italian"
+                    name="Spicy Italian Sausage"
+                    checkLabel="italian"
+                    labelText="Spicy Italian Sausage"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+                </div>
+
+                <div className="toppings1">
+                  <Toppings
+                    checkId="tomato"
+                    name="Diced Tomatos"
+                    checkLabel="tomato"
+                    labelText="Diced Tomatos"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+
+                  <Toppings
+                    checkId="olives"
+                    name="Black Olives"
+                    checkLabel="olives"
+                    labelText="Black Olives"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+
+                  <Toppings
+                    checkId="extra"
+                    name="Extra Cheese"
+                    checkLabel="extra"
+                    labelText="Extra Cheese"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+
+                  <Toppings
+                    checkId="roastg"
+                    name="Roasted Garlic"
+                    checkLabel="roastg"
+                    labelText="Roasted Garlic"
+                    checkHandleChanges={checkHandleChanges}
+                  />
+                </div>
+              </div>
+            </FormGroup>
 
             {/**************Choice of Substitute */}
 
@@ -220,7 +295,6 @@ function Pizza(props) {
                       width: "95%",
                       paddingLeft: "2rem",
                       marginTop: "1rem",
-                      color: "#FEC02F",
                     }}
                     onChange={instructionHandler}
                     id="instructions"

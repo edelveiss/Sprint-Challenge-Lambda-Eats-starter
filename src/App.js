@@ -64,6 +64,17 @@ const App = () => {
           >
             Lambda Eats
           </NavbarBrand>
+          <Link to="/">
+            <Button
+              className="mr-2"
+              color="danger"
+              style={{
+                color: "white",
+              }}
+            >
+              Home
+            </Button>
+          </Link>
 
           <Button
             onClick={toggleNavbar}
