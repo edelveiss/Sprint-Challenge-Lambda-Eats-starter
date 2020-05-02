@@ -9,7 +9,6 @@ import "./App.css";
 import {
   Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -31,7 +30,6 @@ const App = () => {
     lastName: "",
     email: "",
     location: "",
-    orderAmount: 0,
   });
   const addNewUser = (user) => {
     const newUser = {
@@ -121,7 +119,18 @@ const App = () => {
       </div>
       <Switch>
         <Route path="/pizza/order">
-          <Order />
+          <Order
+            users={users}
+            setUsers={setUsers}
+            addNewUser={addNewUser}
+            setSum={setSum}
+            sum={sum}
+            orderList={orderList}
+            setOrderList={setOrderList}
+            currentUser={currentUser}
+            post={post}
+            setPost={setPost}
+          />
         </Route>
         <Route path="/pizza">
           <Pizza

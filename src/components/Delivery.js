@@ -24,8 +24,8 @@ function Delivery(props) {
         style={{ margin: "0 auto", marginTop: "2rem", marginBottom: "2rem" }}
       >
         <Row>
-          {props.shopInfo.map((element) => (
-            <Col xs="6" md="4" xl="4">
+          {props.shopInfo.map((element, index) => (
+            <Col xs="6" md="4" xl="4" key={index}>
               <Card
                 style={{
                   margin: "1rem",

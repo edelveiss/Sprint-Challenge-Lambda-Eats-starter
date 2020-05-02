@@ -5,28 +5,19 @@ import ModalForm from "./ModalForm";
 import {
   Card,
   CardImg,
-  CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button,
   Form,
   FormGroup,
   Label,
 } from "reactstrap";
-import {
-  useParams,
-  Route,
-  Link,
-  NavLink,
-  Switch,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Pizza(props) {
   const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
-  const [instruction, setInstruction] = useState({ instructions: "" });
+
+  const [instruction, setInstruction] = useState("");
 
   const selectHandleChanges = (event) => {
     console.log("Edit event ", event.target.value);
@@ -60,8 +51,11 @@ function Pizza(props) {
     }
   };
   const instructionHandler = (event) => {
-    setInstruction({ ...instruction, [event.target.name]: event.target.value });
+    setInstruction(event.target.value);
     console.log("instruction", instruction);
+  };
+  const toggle = () => {
+    setModal(!modal);
   };
   const subButton = () => {
     props.setOrderList([...props.orderList, instruction]);
@@ -69,6 +63,7 @@ function Pizza(props) {
       ...props.orderList,
       `Sum of Order: ${props.sum.toFixed(2)}`,
     ]);
+    props.setSum(0);
   };
 
   console.log("orderList", props.orderList);
